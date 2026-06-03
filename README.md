@@ -1,12 +1,14 @@
 # Fake News Detection System
 
-## Objective
-To classify news articles as Real or Fake using Machine Learning and NLP techniques.
+## Project Overview
+This project uses Machine Learning and NLP techniques to classify news articles as Real or Fake.
 
-## Technologies
+## Technologies Used
 - Python
-- Machine Learning
-- NLP
+- Pandas
+- NumPy
+- Scikit-learn
+- NLTK
 - Streamlit
 
 ## Team Member
