@@ -16,9 +16,14 @@ news.title.toLowerCase().includes(searchTerm.toLowerCase())
 );
 
 const handleSubmit = (e) => {
-e.preventDefault();
+  e.preventDefault();
 
-```
+  console.log("Add News Clicked");
+
+  
+
+
+
 if (!title || !content || !source || !category) {
   alert("Please fill all fields");
   return;
@@ -44,21 +49,21 @@ setTitle("");
 setContent("");
 setSource("");
 setCategory("");
-```
+
 
 };
 
 const handleEdit = (index) => {
 const item = newsList[index];
 
-```
+
 setTitle(item.title);
 setContent(item.content);
 setSource(item.source);
 setCategory(item.category);
 
 setEditIndex(index);
-```
+
 
 };
 
@@ -69,7 +74,7 @@ setNewsList(updatedList);
 
 return ( <div className="crud-container"> <h1>Fake News Management</h1>
 
-```
+
   <form onSubmit={handleSubmit} className="crud-form">
     <input
       type="text"
