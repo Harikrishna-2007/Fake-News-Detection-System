@@ -1,14 +1,7 @@
-import Login from "./pages/Login/Login";
+import NewsCRUD from "./pages/NewsCRUD/NewsCRUD";
 
 function App() {
-  return <Login />;
-}
-
-export default App;
-import Register from "./pages/Register/Register";
-
-function App() {
-  return <Register />;
+return <NewsCRUD />;
 }
 
 export default App;
