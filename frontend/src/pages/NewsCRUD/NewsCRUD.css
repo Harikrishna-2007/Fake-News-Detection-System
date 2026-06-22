@@ -11,12 +11,11 @@ min-height:100vh;
 }
 
 .crud-container h1{
-    color:#1f2937;
-    text-align:center;
-    margin-bottom:25px;
-    font-size:36px;
-    font-weight:700;
-
+color:#1f2937;
+text-align:center;
+margin-bottom:25px;
+font-size:36px;
+font-weight:700;
 }
 
 .crud-form{
@@ -46,6 +45,20 @@ border-radius:8px;
 cursor:pointer;
 }
 
+.search-box{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:16px;
+}
+
+.record-count{
+margin-bottom:15px;
+font-weight:bold;
+}
+
 table{
 width:100%;
 border-collapse:collapse;
@@ -62,7 +75,28 @@ border:1px solid #ddd;
 padding:12px;
 }
 
-td button{
-margin-right:8px;
+.edit-btn{
+background:#10b981;
+color:white;
+border:none;
 padding:6px 12px;
+margin-right:8px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.delete-btn{
+background:#ef4444;
+color:white;
+border:none;
+padding:6px 12px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.no-data{
+text-align:center;
+color:red;
+font-weight:bold;
+padding:20px;
 }

@@ -9,6 +9,11 @@ const [category, setCategory] = useState("");
 
 const [newsList, setNewsList] = useState([]);
 const [editIndex, setEditIndex] = useState(null);
+const [searchTerm, setSearchTerm] = useState("");
+
+const filteredNews = newsList.filter((news) =>
+news.title.toLowerCase().includes(searchTerm.toLowerCase())
+);
 
 const handleSubmit = (e) => {
 e.preventDefault();
@@ -62,13 +67,10 @@ const updatedList = newsList.filter((_, i) => i !== index);
 setNewsList(updatedList);
 };
 
-return ( <div className="crud-container">
+return ( <div className="crud-container"> <h1>Fake News Management</h1>
 
 ```
-  <h1>Fake News Management</h1>
-
   <form onSubmit={handleSubmit} className="crud-form">
-
     <input
       type="text"
       placeholder="News Title"
@@ -99,11 +101,21 @@ return ( <div className="crud-container">
     <button type="submit">
       {editIndex !== null ? "Update News" : "Add News"}
     </button>
-
   </form>
 
-  <table>
+  <input
+    type="text"
+    placeholder="Search News..."
+    className="search-box"
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+  />
 
+  <p className="record-count">
+    Total Records: {filteredNews.length}
+  </p>
+
+  <table>
     <thead>
       <tr>
         <th>Title</th>
@@ -114,29 +126,39 @@ return ( <div className="crud-container">
     </thead>
 
     <tbody>
-
-      {newsList.map((item, index) => (
-        <tr key={index}>
-          <td>{item.title}</td>
-          <td>{item.source}</td>
-          <td>{item.category}</td>
-
-          <td>
-            <button onClick={() => handleEdit(index)}>
-              Edit
-            </button>
-
-            <button onClick={() => handleDelete(index)}>
-              Delete
-            </button>
+      {filteredNews.length === 0 ? (
+        <tr>
+          <td colSpan="4" className="no-data">
+            No records found
           </td>
         </tr>
-      ))}
+      ) : (
+        filteredNews.map((item, index) => (
+          <tr key={index}>
+            <td>{item.title}</td>
+            <td>{item.source}</td>
+            <td>{item.category}</td>
 
+            <td>
+              <button
+                className="edit-btn"
+                onClick={() => handleEdit(index)}
+              >
+                Edit
+              </button>
+
+              <button
+                className="delete-btn"
+                onClick={() => handleDelete(index)}
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        ))
+      )}
     </tbody>
-
   </table>
-
 </div>
 
 
